@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f3f5f8">
+    <title>Question Board</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./supabase-config.js"></script>
+    <script type="module" src="./src/app.js"></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="Question Board home">
+          <span class="brand-mark" aria-hidden="true">Q</span>
+          <span>Question Board</span>
+        </a>
+        <p class="topbar-note">A quieter place for curious minds.</p>
+      </header>
+
+      <section class="welcome-grid" aria-labelledby="welcome-title">
+        <div class="welcome-copy">
+          <p class="eyebrow">YOUR PERSONAL QUESTION SPACE</p>
+          <h1 id="welcome-title">Keep the good questions <span>close.</span></h1>
+          <p class="intro">Collect what you want to ask, add a note for later, and come back when you’re ready.</p>
+          <div class="welcome-stamp" aria-hidden="true">
+            <span class="stamp-dot"></span>
+            <span>One thought at a time</span>
+          </div>
+        </div>
+
+        <section class="auth-card" aria-labelledby="login-title">
+          <div class="card-heading">
+            <p class="eyebrow">WELCOME BACK</p>
+            <h2 id="login-title">Sign in to your board</h2>
+            <p>Your questions are waiting where you left them.</p>
+          </div>
+          <form class="auth-form" action="#" method="post">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
+
+            <button class="button button-primary" type="submit">Sign in <span aria-hidden="true">→</span></button>
+          </form>
+          <p class="auth-switch">New here? <a href="#register">Create an account</a></p>
+          <a class="forgot-link" href="#reset-password">Forgot password?</a>
+        </section>
+      </section>
+
+      <section class="board-preview" id="question-board" aria-labelledby="board-title" hidden>
+        <div class="board-heading">
+          <div>
+            <p class="eyebrow">YOUR BOARD</p>
+            <h2 id="board-title">Questions worth keeping</h2>
+          </div>
+          <button class="button button-primary" type="button">＋ Add a question</button>
+        </div>
+        <form class="question-form" id="question-form" hidden>
+          <label for="question-text">Question <span>0 / 500</span></label>
+          <textarea id="question-text" name="text" maxlength="500" aria-describedby="question-limit"></textarea>
+          <p class="field-hint" id="question-limit">Up to 500 characters.</p>
+
+          <label for="question-note">Note <span>0 / 2000</span></label>
+          <textarea id="question-note" name="note" maxlength="2000" aria-describedby="note-limit"></textarea>
+          <p class="field-hint" id="note-limit">Up to 2000 characters.</p>
+
+          <label for="question-tag">Tag <span>0 / 40</span></label>
+          <input id="question-tag" name="tag" maxlength="40" aria-describedby="tag-limit">
+          <p class="field-hint" id="tag-limit">Up to 40 characters.</p>
+          <button class="button button-primary" type="button">Save question</button>
+        </form>
+        <div class="board-columns">
+          <section class="board-column" aria-labelledby="open-title">
+            <div class="column-heading"><h3 id="open-title">In progress</h3><span class="count">0</span></div>
+            <div class="empty-state">
+              <span class="empty-mark" aria-hidden="true">?</span>
+              <h4>Your first question starts here</h4>
+              <p>Save the things you want to understand. You can add a note or tag whenever it helps.</p>
+              <button class="text-button" type="button">Add your first question <span aria-hidden="true">→</span></button>
+            </div>
+          </section>
+          <section class="board-column board-column-complete" aria-labelledby="completed-title">
+            <div class="column-heading"><h3 id="completed-title">Completed</h3><span class="count">0</span></div>
+            <p class="completed-hint">Answered questions will find a home here.</p>
+          </section>
+        </div>
+      </section>
+
+      <footer class="page-footer"><span>Made for the questions that move you forward.</span><span data-app-status role="status">Ready when you are.</span></footer>
+    </main>
+  </body>
+</html>
